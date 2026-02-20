@@ -1,0 +1,10 @@
+{
+  "name": "Remix: NEW version",
+  "description": "The ultimate social platform for creators, streaming, shorts, comics, and shop interactions.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ],
+  "theme_color": "#a10a39"
+}

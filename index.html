@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>LuciSin - The Ultimate Creator Sanctuary</title>
+    
+    <!-- PWA / Native App Config -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LuciSin" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#a10a39" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join LuciSin to stream, share content, sell products, and connect with fans. The premier platform for creators, artists, and influencers." />
+    <meta name="keywords" content="social media, creator economy, live streaming, web3, content monetization, art, comics, video, shorts" />
+    <meta name="author" content="LuciSin" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LuciSin - Where Creativity Meets The Pride" />
+    <meta property="og:description" content="Discover, stream, and earn. Join the top-tier ranks of LuciStars." />
+    <meta property="og:image" content="https://lucisin.com/og-image.jpg" />
+    <meta property="og:url" content="https://lucisin.com" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LuciSin" />
+    <meta name="twitter:description" content="The ultimate social platform for creators." />
+    <meta name="twitter:image" content="https://lucisin.com/twitter-image.jpg" />
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+      :root {
+        /* LIGHT MODE PALETTE REDESIGN */
+        --bg-main: #f0f2f5;
+        --text-primary: #1a1a1a;
+        
+        /* Mapping 'dark' palette to Light Mode equivalents */
+        --bg-dark-950: #ffffff; /* Sidebar / Header - Pure White */
+        --bg-dark-900: #f0f2f5; /* Main Background - Soft Gray */
+        --bg-dark-850: #f8f9fa; /* Content Area / Right Sidebar */
+        --bg-dark-800: #ffffff; /* Cards - White with Shadow */
+        --bg-dark-700: #e5e7eb; /* Borders - Light Gray */
+        --bg-dark-600: #6b7280; /* Secondary Text - Gray */
+        
+        /* Brand Colors */
+        --brand-main: #a10a39;
+        --brand-second: #0ad396;
+      }
+
+      .dark {
+        /* DARK MODE */
+        --bg-main: #0b0a0b; 
+        --text-primary: #FFFFFF;
+        
+        /* Original Dark Palette */
+        --bg-dark-950: #141414;
+        --bg-dark-900: #0b0a0b;
+        --bg-dark-850: #0b0a0b;
+        --bg-dark-800: #1B1C1C;
+        --bg-dark-700: #262626;
+        --bg-dark-600: #3f3f46;
+      }
+
+      body {
+        background-color: var(--bg-dark-900);
+        color: var(--text-primary);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      .sidebar-item {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .sidebar-item:hover {
+        background-color: rgba(10, 211, 150, 0.1);
+        color: var(--brand-second);
+      }
+
+      .sidebar-item.active {
+        background-color: var(--brand-main) !important;
+        color: #fff !important;
+        font-weight: 800;
+      }
+
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      /* LIGHT MODE OVERRIDES */
+      :root:not(.dark) .text-white { color: #1a1a1a; }
+      :root:not(.dark) .text-gray-400, :root:not(.dark) .text-gray-500 { color: #6b7280; }
+      :root:not(.dark) .text-gray-300 { color: #4b5563; }
+      :root:not(.dark) .border-white\/5, :root:not(.dark) .border-white\/10, :root:not(.dark) .border-white\/20 { border-color: #e5e7eb; }
+      :root:not(.dark) .bg-dark-800 { background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; }
+      :root:not(.dark) .bg-dark-900 { background-color: #f3f4f6; }
+      
+      /* EXCEPTIONS */
+      :root:not(.dark) .bg-brand-500 .text-white,
+      :root:not(.dark) .bg-brand-600 .text-white,
+      :root:not(.dark) .bg-black .text-white,
+      :root:not(.dark) .bg-dark-950 .text-white,
+      :root:not(.dark) button[class*="bg-brand"] .text-white,
+      :root:not(.dark) button[class*="bg-red"] .text-white,
+      :root:not(.dark) button[class*="bg-green"] .text-white,
+      :root:not(.dark) button[class*="bg-blue"] .text-white,
+      :root:not(.dark) .group:hover .text-white,
+      :root:not(.dark) .sidebar-item.active .text-white,
+      :root:not(.dark) .text-white-force {
+          color: #ffffff !important;
+      }
+    </style>
+    
+    <script>
+      // POLYFILL: Ensure process.env exists to prevent black screen crashes
+      window.process = window.process || { env: { API_KEY: '' } };
+
+      // Global theme initialization from localStorage
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+        if (!savedTheme) localStorage.setItem('theme', 'dark');
+      }
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { 
+              sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#fca5a5', 400: '#f87171',
+                500: '#a10a39', // Main Color Updated
+                600: '#b01646', 700: '#921139', 800: '#750e2e', 900: '#580a22',
+                second: '#0ad396', // Second Color Updated
+              },
+              dark: {
+                950: 'var(--bg-dark-950)',
+                900: 'var(--bg-dark-900)',
+                850: 'var(--bg-dark-850)',
+                800: 'var(--bg-dark-800)',
+                700: 'var(--bg-dark-700)',
+                600: 'var(--bg-dark-600)',
+              },
+              light: {
+                900: '#F5E9CE', 
+                800: '#EBD9B2', 
+                700: '#E1CAA1',
+                base: '#e3dfd3',
+              },
+              gray: { 100: '#f4f4f5', 300: '#d4d4d8', 400: '#a1a1aa' }
+            },
+            borderRadius: {
+              'none': '0',
+              'sm': '5px',
+              'DEFAULT': '6px',
+              'md': '8px',
+              'lg': '10px',
+              'xl': '10px',
+              '2xl': '10px',
+              '3xl': '10px',
+              'full': '9999px',
+            },
+            animation: { 'spin-slow': 'spin 3s linear infinite' }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "hls.js": "https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.mjs",
+    "recharts": "https://aistudiocdn.com/recharts@^2.15.0",
+    "stripe": "https://esm.sh/stripe@^20.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-sans antialiased transition-colors duration-300">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

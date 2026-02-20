@@ -1,0 +1,104 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT MODE */
+  --bg-main: #e3dfd3;
+  --text-primary: #1B1B1B;
+  
+  /* Mapping 'dark' palette to Light Mode equivalents */
+  --bg-dark-950: #e3dfd3; /* Sidebar & Header - Primary BG */
+  --bg-dark-900: #e3dfd3; /* Main Background - Primary BG */
+  --bg-dark-850: #e3dfd3; /* Content Area */
+  --bg-dark-800: #F5F5F5; /* Cards/Surfaces - Secondary BG (Light Gray) */
+  --bg-dark-700: #d4d4d8; /* Borders/Separators */
+  --bg-dark-600: #616161; /* Secondary Text */
+  
+  /* Brand Colors */
+  --brand-main: #a10a39;
+  --brand-second: #0ad396;
+}
+
+.dark {
+  /* DARK MODE */
+  --bg-main: #0b0a0b; 
+  --text-primary: #FFFFFF;
+  
+  /* Original Dark Palette */
+  --bg-dark-950: #141414;
+  --bg-dark-900: #0b0a0b;
+  --bg-dark-850: #0b0a0b;
+  --bg-dark-800: #1B1C1C;
+  --bg-dark-700: #262626;
+  --bg-dark-600: #3f3f46;
+}
+
+body {
+  background-color: var(--bg-dark-900);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.sidebar-item {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-item:hover {
+  background-color: rgba(10, 211, 150, 0.1);
+  color: var(--brand-second);
+}
+
+.sidebar-item.active {
+  background-color: var(--brand-main) !important;
+  color: #fff !important;
+  font-weight: 800;
+}
+
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* --- LIGHT MODE COMPATIBILITY OVERRIDES --- */
+/* These rules invert text and border colors when NOT in dark mode */
+
+:root:not(.dark) .text-white {
+    color: #1B1B1B; /* Invert white text to dark primary */
+}
+
+:root:not(.dark) .text-gray-400,
+:root:not(.dark) .text-gray-500 {
+    color: #616161; /* Darker gray for readability */
+}
+
+:root:not(.dark) .border-white\/5,
+:root:not(.dark) .border-white\/10,
+:root:not(.dark) .border-white\/20 {
+    border-color: #d4d4d8; /* Light gray borders */
+}
+
+/* EXCEPTIONS: Keep text white on brand/dark backgrounds in light mode */
+:root:not(.dark) .bg-brand-500 .text-white,
+:root:not(.dark) .bg-brand-600 .text-white,
+:root:not(.dark) .bg-black .text-white,
+:root:not(.dark) .bg-dark-950 .text-white,
+:root:not(.dark) button[class*="bg-brand"] .text-white,
+:root:not(.dark) button[class*="bg-red"] .text-white,
+:root:not(.dark) button[class*="bg-green"] .text-white,
+:root:not(.dark) button[class*="bg-blue"] .text-white,
+:root:not(.dark) .group:hover .text-white,
+:root:not(.dark) .sidebar-item.active .text-white
+{
+    color: #ffffff !important;
+}
